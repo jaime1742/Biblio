@@ -6,7 +6,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 class Vehiculo(models.Model):
     marca = models.CharField(max_length=200)
     modelo = models.CharField(max_length=100)
-    # imagen = models.ImageField()
+    imagen = models.ImageField()
     anho = models.IntegerField()
 
     def __str__(self) -> str:
