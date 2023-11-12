@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %} 
+<h1>Lista de Coches</h1>
+
+<form action="{% url 'filtro_coches' %}" method="get">
+    <label for="anho">Año</label>
+    <input type="text" name="anho">
+
+    <label for="marca">Marca:</label>
+    <input type="text" name="marca">
+
+    <label for="modelo">Modelo:</label>
+    <input type="text" name="modelo">
+
+    <button type="submit">Filtrar</button>
+</form>
+
+<ul>
+    {% for vehiculo in vehiculos %}
+        <li>
+            {{ vehiculo.anho }} {{ vehiculo.marca }} {{ vehiculo.modelo }}
+            <img src="{% static 'img/' %}{{ vehiculo.imagen }}" alt="{{ vehiculo.marca }} {{ vehiculo.modelo }}">
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
-from .models import User
+from .models import User, Vehiculo
 from django.contrib.auth import login
 from django.db import IntegrityError
 from .forms import UserRegistrationForm
@@ -39,3 +39,25 @@ def signup(request):
         form = UserRegistrationForm()
 
     return render(request, 'registration/signup.html', {'form': form})
+
+
+
+
+
+def lista_coches(request):
+    vehiculos = Vehiculo.objects.all()
+    return render(request, 'lista_vehiculos.html', {'vehiculos': vehiculos})
+
+def filtro_coches(request):
+    if request.method == 'GET':
+        anho = request.GET.get('anho', '')
+        modelo = request.GET.get('modelo', '')
+        marca = request.GET.get('marca', '')
+
+        vehiculos = Vehiculo.objects.filter(
+            anho__icontains=anho,
+            modelo__icontains=modelo,
+            marca__icontains=marca
+        )
+
+        return render(request, 'lista_vehiculos.html', {'vehiculos': vehiculos})
