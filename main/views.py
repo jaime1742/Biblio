@@ -42,8 +42,8 @@ def signup(request):
 
 
 
-
-
+@login_required
+@permission_required("User")
 def lista_coches(request):
     vehiculos = Vehiculo.objects.all()
     return render(request, 'lista_vehiculos.html', {'vehiculos': vehiculos})
