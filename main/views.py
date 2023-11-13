@@ -4,7 +4,8 @@ from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMix
 from .models import User
 from django.contrib.auth import login
 from django.db import IntegrityError
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, CarsForm
+from .models import Vehiculo
 
 
 @login_required
