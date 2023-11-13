@@ -42,3 +42,8 @@ footer {
 .signup-error {
     color: red;
 }
+
+img {
+    width: 600px;
+    height: auto;
+}

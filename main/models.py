@@ -7,11 +7,11 @@ class Vehiculo(models.Model):
     marca = models.CharField(max_length=200)
     modelo = models.CharField(max_length=100)
     imagen = models.ImageField()
+    carroceria = models.CharField(max_length=100, null=True)
     anho = models.IntegerField()
 
     def __str__(self) -> str:
         return f'{self.marca} {self.modelo} {self.anho}'
-
 
 
 class Reseña(models.Model):
@@ -32,4 +32,6 @@ class MensajeDirecto(models.Model):
 
     def __str__(self) -> str:
         return f"De {self.remitente} a {self.destinatario}: {self.asunto}"
+    
+
     
