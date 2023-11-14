@@ -1,8 +1,18 @@
-
+:root {
+    --background-color: #f4f4f4;
+    --form-background: #fff;
+    --form-border: #ccc;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --text-color: #333;
+    --label-color: #555;
+    --submit-button-bg: #4caf50;
+    --submit-button-text: white;
+    --submit-button-hover: #45a049;
+}
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--background-color);
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -17,16 +27,16 @@ body {
 }
 
 .form-container {
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: var(--form-background);
+    border: 1px solid var(--form-border);
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px var(--box-shadow-color);
 }
 
 .login-text {
     text-align: center;
-    color: #333;
+    color: var(--text-color);
 }
 
 form {
@@ -45,7 +55,7 @@ li {
 label {
     display: block;
     margin-bottom: 5px;
-    color: #555;
+    color: var(--label-color);
 }
 
 input {
@@ -57,19 +67,21 @@ input {
 }
 
 input[type="submit"] {
-    background-color: #4caf50;
-    color: white;
+    background-color: var(--submit-button-bg);
+    color: var(--submit-button-text);
     cursor: pointer;
     margin-top: .6rem;
 }
 
-label, input[type="submit"] {
+label,
+input[type="submit"] {
     font-size: large;
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: var(--submit-button-hover);
 }
+
 
 @media screen and (max-width: 600px) {
     .wrapper {
