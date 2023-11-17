@@ -1,28 +1,51 @@
 {% extends "base.html" %}
 {% load static %}
-{% block content %} 
-<h1>Lista de Coches</h1>
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/lista_coches.css' %}">
+<h1>Catálogo</h1>
 
-<form action="{% url 'filtro_coches' %}" method="get">
-    <label for="anho">Año</label>
-    <input type="text" name="anho">
+<nav>
+    <img class="logos" src="{% static 'img/audi_logo.png' %}" alt="Audi" onclick="mostrarFotos('#Audi')">
+    <img class="logos" src="{% static 'img/bmw_logo.png' %}" alt="BMW" onclick="mostrarFotos('#BMW')">
+    <img class="logos" src="{% static 'img/chevrolet_logo.png' %}" alt="Chevrolet" onclick="mostrarFotos('#Chevrolet')">
+    <img class="logos" src="{% static 'img/ford_logo.png' %}" alt="Ford" onclick="mostrarFotos('#Ford')">
+    <img class="logos" src="{% static 'img/honda_logo.png' %}" alt="Honda" onclick="mostrarFotos('#Honda')">
+    <img class="logos" src="{% static 'img/mercedes_logo.png' %}" alt="Mercedes" onclick="mostrarFotos('#Mercedes-Benz')">
+    <img class="logos" src="{% static 'img/nissan_logo.png' %}" alt="Nissan" onclick="mostrarFotos('#Nissan')">
+    <img class="logos" src="{% static 'img/subaru_logo.png' %}" alt="Subaru" onclick="mostrarFotos('#Subaru')">
+    <img class="logos" src="{% static 'img/toyota_logo.png' %}" alt="Toyota" onclick="mostrarFotos('#Toyota')">
+    <img class="logos" src="{% static 'img/volkswagen_logo.png' %}" alt="Volkswagen" onclick="mostrarFotos('#Volkswagen')">
+    <label class="links" onclick="todos()">Todos</label>
+</nav>
 
-    <label for="marca">Marca:</label>
-    <input type="text" name="marca">
-
-    <label for="modelo">Modelo:</label>
-    <input type="text" name="modelo">
-
-    <button type="submit">Filtrar</button>
-</form>
-
-<ul>
+<div class="catalogo">
     {% for vehiculo in vehiculos %}
-        <li>
-            {{ vehiculo.anho }} {{ vehiculo.marca }} {{ vehiculo.modelo }}
-            <img src="{% static 'img/' %}{{ vehiculo.imagen }}" alt="{{ vehiculo.marca }} {{ vehiculo.modelo }}">
-        </li>
+    <figure class="coche"  id="{{ vehiculo.marca }}">                                                                                                                                                       
+        <img src="{% static 'img/' %}{{ vehiculo.imagen }}" alt="{{ vehiculo.marca }} {{ vehiculo.modelo }}">
+        <figcaption>{{ vehiculo.marca }} {{ vehiculo.modelo }} {{ vehiculo.anho }}</figcaption>
+    </figure>  
     {% endfor %}
-</ul>
+</div>
+<script>
+function mostrarFotos(id) {
+    let marcas = document.querySelectorAll(id)
+    let imagenes = document.querySelectorAll(".coche")
 
+    imagenes.forEach((imagen) => {
+        imagen.classList.add("ocultar")
+        
+    })
+
+    marcas.forEach((marca) => {
+        marca.classList.remove("ocultar")
+    })
+}
+
+function todos() {
+    let figures = document.querySelectorAll("figure")
+    figures.forEach((figure) => {
+        figure.classList.remove("ocultar")
+    })
+}
+</script>
 {% endblock %}
