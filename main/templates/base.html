@@ -19,6 +19,7 @@
                 <li><a href="{% url 'login' %}">Login</a></li>
             {% endif %}
             <li><a href="{% url 'signup' %}">Signup</a></li>
+            <li><a href="{% url 'user-profile' 1 %}">Perfil</a></li> <!--El id será uno por default, por ahora.-->
         </nav>
     </header>
     <main>
