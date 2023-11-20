@@ -1,11 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from .models import User, Vehiculo
 from django.contrib.auth import login
 from django.db import IntegrityError
 from .forms import UserRegistrationForm
-from .models import Vehiculo
+from django.contrib.auth.models import User
+from .models import PerfilUsuario, Reseña, Vehiculo
+from .serializers import PerfilUsuarioSerializer, ReseñaSerializer, VehiculoSerializer
 
 
 @login_required
@@ -30,7 +32,7 @@ def signup(request):
                     user.save()
                     login(request, user)
                     return redirect('/')
-                
+
                 except IntegrityError:
                     return render(request, 'registration/signup.html', {'form': form, 'error': 'Este usuario ya existe.'})
             
@@ -42,12 +44,12 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
-
 @login_required
 @permission_required("User")
 def lista_coches(request):
     vehiculos = Vehiculo.objects.all()
     return render(request, 'lista_vehiculos.html', {'vehiculos': vehiculos})
+
 
 def filtro_coches(request):
     if request.method == 'GET':
@@ -62,3 +64,23 @@ def filtro_coches(request):
         )
 
         return render(request, 'lista_vehiculos.html', {'vehiculos': vehiculos})
+
+
+@permission_required("admin")
+def users_list(request):
+    users = User.objects.all()
+    serializer = PerfilUsuarioSerializer(users, many=True)
+    context = {
+        'users': serializer.data,
+    }
+
+    return render(request, 'users_list.html', context)
+
+
+def user_profile(request, pk):
+    reseñas = Reseña.objects.filter(usuario=pk)
+    context = {
+        'reseñas': reseñas,
+    }
+
+    return render(request, 'user.html', context)
