@@ -2,9 +2,14 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import User
 
+class Marca(models.Model):
+    marca = models.CharField(max_length=100)
+
+    def __str__(self) -> str:
+        return f'{self.marca}'
 
 class Vehiculo(models.Model):
-    marca = models.CharField(max_length=200)
+    marca = models.ForeignKey(Marca, on_delete=models.CASCADE, default='marca')
     modelo = models.CharField(max_length=100)
     imagen = models.ImageField()
     anho = models.IntegerField()
@@ -16,7 +21,7 @@ class Vehiculo(models.Model):
 class Reseña(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     vehiculo = models.ForeignKey(Vehiculo, on_delete=models.CASCADE)
-    calificacion = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)])
+    calificacion = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     comentario = models.TextField()
 
     def __str__(self) -> str:
