@@ -6,6 +6,7 @@ local_settings.py
 venv
 db.sqlite3
 
+
 .Python
 venv/
 build/
@@ -21,3 +22,4 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+
