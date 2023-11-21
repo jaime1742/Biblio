@@ -11,7 +11,10 @@
 <body>
     <header>
         <nav>
-            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <div id="logo-container">
+                <a href="{% url 'perfil' %}" img id="logo" src="{% static 'img/logo.png' %}" alt="Logo">
+                <h1>MotorPulse</h1>
+            </div>
             {% if user.is_authenticated %}
                 <li><a href="{% url 'logout' %}">Logout</a></li>
                 <li><a href="{% url 'lista_coches' %}">Coches</a></li>
