@@ -1,21 +1,22 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
-from .models import User, Vehiculo
+from .models import User, Vehiculo, PerfilUsuario, Reseña
 from django.contrib.auth import login
 from django.db import IntegrityError
 from .forms import UserRegistrationForm
 from django.contrib.auth.models import User
-from .models import PerfilUsuario, Reseña, Vehiculo
+import os
+from django.conf import settings
 from .serializers import PerfilUsuarioSerializer, ReseñaSerializer, VehiculoSerializer
 
 
 @login_required
-def index(request):
-    return render(request, 'index.html', {
-        'users': 'HOLA',
-    })
 
+def index(request):
+    images_path = os.path.join(settings.BASE_DIR,'main', 'static', 'img')
+    images = [image for image in os.listdir(images_path) if image.endswith(('jpg', 'jpeg', 'png'))]
+    return render(request, 'index.html', {'user': request.user, 'images': images})
 
 def signup(request):
     if request.method == "POST":

@@ -16,10 +16,7 @@
 <body>
     <header>
         <nav>
-            <div id="logo-container">
-                <a href="{% url 'perfil' %}" img id="logo" src="{% static 'img/logo.png' %}" alt="Logo">
-                <h1>MotorPulse</h1>
-            </div>
+            <li><a href="{% url 'index' %}">Inicio</a></li>
             {% if user.is_authenticated %}
                 <li><a href="{% url 'lista_coches' %}">Coches</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
@@ -28,7 +25,6 @@
                 <li><a href="{% url 'login' %}">Login</a></li>
             {% endif %}
             <li><a href="{% url 'signup' %}">Signup</a></li>
-            <li><a href="{% url 'user-profile' 1 %}">Perfil</a></li> <!--El id será uno por default, por ahora.-->
         </nav>
     </header>
     <main>
