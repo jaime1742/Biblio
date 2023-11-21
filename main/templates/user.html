@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Detalle de {{ user.username }}</h1>
+    {% for reseña in reseñas %}
+        <h3>{{ reseña.vehiculo }}: {{ reseña.comentario }}. {{ reseña.calificacion }}/5 &star;</h3>
+    {% endfor %}
+    <br>
+    <h3>{{ reseñas2 }}</h3>
+{% endblock %}
