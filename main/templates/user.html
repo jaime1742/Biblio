@@ -1,10 +1,45 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
-    <h1>Detalle de {{ user.username }}</h1>
-    {% for reseña in reseñas %}
-        <h3>{{ reseña.vehiculo }}: {{ reseña.comentario }}. {{ reseña.calificacion }}/5 &star;</h3>
-    {% endfor %}
-    <br>
-    <h3>{{ reseñas2 }}</h3>
+    <link rel="stylesheet" href="{% static 'css/user_details.css' %}">
+
+    <h1 class="details-title">Detalles</h1>
+    <h3 class="username">Nombre: {{ user.username }}
+        <a href="#" id="edit-username">Editar</a>
+
+        <div id="username-form" style="display: none;">
+            <form method="post" action="{% url 'update-username' %}">
+                {% csrf_token %}
+                <input type="text" name="new_username" value="{{ user.username }}" required>
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+    </h3>
+    <h3 class="email">
+        {% if user.email %}
+            Email: {{ user.email }}
+        {% else %}
+            Añadir email
+            <br>
+            <form method="post" action="{% url 'add-email' %}">
+                {% csrf_token %}
+                <input type="email" name="new_email" required>
+                <button type="submit">Guardar</button>
+            </form>
+        {% endif %}
+    </h3>
+        <div class="reviews">
+        {% for reseña in reseñas %}
+            <h3>{{ reseña.vehiculo }}: {{ reseña.comentario }}. {{ reseña.calificacion }}/10 &star;</h3>
+        {% endfor %}
+    </div>
+
+    <script>
+        document.getElementById('edit-username').addEventListener('click', function() {
+            document.getElementById('username-form').style.display = 'block';
+            document.getElementById('edit-username').style.display = 'none';
+        });
+    </script>
 {% endblock %}

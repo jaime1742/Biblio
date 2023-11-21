@@ -17,7 +17,7 @@
     <header>
         <nav>
             <div id="logo-container">
-                <img id="logo" src="{% static 'img/logo.png' %}" alt="Logo">
+                <a href="{% url 'perfil' %}" img id="logo" src="{% static 'img/logo.png' %}" alt="Logo">
                 <h1>MotorPulse</h1>
             </div>
             {% if user.is_authenticated %}
@@ -27,9 +27,8 @@
             {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>
             {% endif %}
-            {% if not user.is_authenticated %}
-                <li><a href="{% url 'signup' %}">Signup</a></li>
-            {% endif %}
+            <li><a href="{% url 'signup' %}">Signup</a></li>
+            <li><a href="{% url 'user-profile' 1 %}">Perfil</a></li> <!--El id será uno por default, por ahora.-->
         </nav>
     </header>
     <main>

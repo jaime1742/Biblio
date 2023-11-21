@@ -77,6 +77,7 @@ def users_list(request):
     return render(request, 'users_list.html', context)
 
 
+@login_required
 def user_profile(request, pk):
     reseñas = Reseña.objects.filter(usuario=pk)
     context = {
@@ -84,13 +85,3 @@ def user_profile(request, pk):
     }
 
     return render(request, 'user.html', context)
-
-def vehiculo_detalle(request, pk):
-    vehiculo = Vehiculo.objects.get(pk=pk)
-    reseñas = Reseña.objects.filter(vehiculo=vehiculo)
-
-    context = {
-        'vehiculo': vehiculo,
-        'reseñas': reseñas,
-    }
-    return render(request, 'vehiculo_detalle.html', context)
