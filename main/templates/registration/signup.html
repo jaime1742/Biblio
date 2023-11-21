@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <p class="signup-error">{{ error }}</p>
+
+    <div class="wrapper">
+        <div class="signup-container">
+            <h2>Registro</h2>
+            <form method="POST" action="/signup/">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

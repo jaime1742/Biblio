@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/logged_out.css' %}">
+{% block content %}
+    
+    <h1>Has cerrado sesión</h1>
+    <p>Para iniciar sesión de nuevo <a href="{% url 'login' %}">haz click aquí</a></p>
+
+{% endblock %}
