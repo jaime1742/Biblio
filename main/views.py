@@ -4,16 +4,17 @@ from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMix
 from .models import User, Vehiculo
 from django.contrib.auth import login
 from django.db import IntegrityError
-from .forms import UserRegistrationForm, CarsForm
+from .forms import UserRegistrationForm
 from .models import Vehiculo
+import os
+from django.conf import settings
 
 
-@login_required
+
 def index(request):
-    return render(request, 'index.html', {
-        'users': 'HOLA',
-    })
-
+    images_path = os.path.join(settings.BASE_DIR,'main', 'static', 'img')
+    images = [image for image in os.listdir(images_path) if image.endswith(('jpg', 'jpeg', 'png'))]
+    return render(request, 'index.html', {'user': request.user, 'images': images})
 
 def signup(request):
     if request.method == "POST":
@@ -62,3 +63,7 @@ def filtro_coches(request):
         )
 
         return render(request, 'lista_vehiculos.html', {'vehiculos': vehiculos})
+
+
+
+
