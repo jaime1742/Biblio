@@ -11,7 +11,9 @@
 <body>
     <header>
         <nav>
-            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <div id="logo-container">
+                <h1>MotorPulse</h1>
+            </div>
             {% if user.is_authenticated %}
                 <li><a href="{% url 'logout' %}">Logout</a></li>
                 <li><a href="{% url 'lista_coches' %}">Coches</a></li>
@@ -19,7 +21,7 @@
                 <li><a href="{% url 'login' %}">Login</a></li>
             {% endif %}
             <li><a href="{% url 'signup' %}">Signup</a></li>
-            <li>{% if user.is_authenticated %}<a href="{% url 'user-profile' user.id %}">Perfil</a>{% endif %}</li>
+            <li><a href="{% url 'user-profile' user.id %}">Perfil</a></li>
         </nav>
     </header>
     <main>
