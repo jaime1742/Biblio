@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 class Vehiculo(models.Model):
-    marca = models.CharField(max_length=200)
+    marca = models.CharField(max_length=200, null=True)
     modelo = models.CharField(max_length=100)
     imagen = models.ImageField()
     anho = models.IntegerField()

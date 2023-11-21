@@ -36,10 +36,7 @@
         {% endfor %}
     </div>
 
-    <script>
-        document.getElementById('edit-username').addEventListener('click', function() {
-            document.getElementById('username-form').style.display = 'block';
-            document.getElementById('edit-username').style.display = 'none';
-        });
+    <script src="{% static 'js/user.js' %}">
+        
     </script>
 {% endblock %}

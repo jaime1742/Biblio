@@ -108,3 +108,14 @@ def update_username(request):
         return redirect('/')
 
     return render(request, 'user.html')
+
+
+def vehiculo_detalle(request, pk):
+    vehiculo = Vehiculo.objects.get(pk=pk)
+    reseñas = Reseña.objects.filter(vehiculo=vehiculo)
+
+    context = {
+        'vehiculo': vehiculo,
+        'reseñas': reseñas,
+    }
+    return render(request, 'vehiculo_detalle.html', context)

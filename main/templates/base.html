@@ -20,6 +20,7 @@
             {% endif %}
             <li><a href="{% url 'signup' %}">Signup</a></li>
             <li>{% if user.is_authenticated %}<a href="{% url 'user-profile' user.id %}">Perfil</a>{% endif %}</li>
+            <li><a href="{% url 'user-profile' 1 %}">Perfil</a></li> <!--El id será uno por default, por ahora.-->
         </nav>
     </header>
     <main>
