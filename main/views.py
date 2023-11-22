@@ -5,17 +5,18 @@ from .models import User, Vehiculo
 from django.contrib.auth import login
 from django.db import IntegrityError
 from .forms import UserRegistrationForm
-from django.contrib.auth.models import User
-from .models import PerfilUsuario, Reseña, Vehiculo
-from .serializers import PerfilUsuarioSerializer, ReseñaSerializer, VehiculoSerializer
+from .models import Vehiculo, Reseña
+import os
+from django.conf import settings
+from .serializers import PerfilUsuarioSerializer
 
 
 @login_required
-def index(request):
-    return render(request, 'index.html', {
-        'users': 'HOLA',
-    })
 
+def index(request):
+    images_path = os.path.join(settings.BASE_DIR,'main', 'static', 'img')
+    images = [image for image in os.listdir(images_path) if image.endswith(('jpg', 'jpeg', 'png'))]
+    return render(request, 'index.html', {'user': request.user, 'images': images})
 
 def signup(request):
     if request.method == "POST":
@@ -85,3 +86,26 @@ def user_profile(request, pk):
     }
 
     return render(request, 'user.html', context)
+
+
+def add_email(request):
+    if request.method == "POST":
+        new_email = request.POST.get("new_email")
+        request.user.email = new_email
+        request.user.save()
+
+        return redirect('/')
+
+    return render(request, 'user.html')
+
+
+@login_required
+def update_username(request):
+    if request.method == 'POST':
+        new_username = request.POST.get('new_username')
+        request.user.username = new_username
+        request.user.save()
+
+        return redirect('/')
+
+    return render(request, 'user.html')
