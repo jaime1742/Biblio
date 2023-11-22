@@ -1,44 +1,197 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-}
+    /* Estilos para pantallas más grandes */
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #333;
+        display: flex;
+        justify-content: space-between; /* Distribuye los elementos a ambos lados del header */
+        align-items: center;
+        padding: 0 20px; /* Añade relleno a los lados del header para separar del borde del navegador */
+        box-sizing: border-box; /* Incluye el relleno y el borde en el ancho y alto total */
+    }   
 
-:root {
-    --nav-item-color: #202124;
-    --footer-bg-color: #333;
-}
+    nav {
+        margin-top: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Alinea los elementos al final (derecha) */
+        background-color: #333;
+        height: 80px;
+        box-sizing: border-box; /* Incluye el relleno y el borde en el ancho y alto total */
+    }
 
-nav {
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: center;
-    gap: 2.5em;
-}
+    /* Estilos adicionales para el logo y el título en el header */
+    #logo-container {
+        display: flex;
+        align-items: center;
+    }
+    
+    #logo {
+        width: 40px; /* Ajusta el tamaño del logo según sea necesario */
+        margin-right: 10px; /* Añade margen derecho al logo */
+    }
+    
+    #logo-container h1 {
+        font-size: 24px; /* Ajusta el tamaño del título según sea necesario */
+        color: white;
+        margin: 0; /* Elimina el margen del título para alinearlo con el logo */
+    }
 
-nav>li>a {
-    color: var(--nav-item-color);
-    text-decoration: none;
-}
+    .col-md-12 h1 {
+        font-size: 36px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+    }
 
-nav>li>a:hover {
-    text-decoration: underline;
-}
+    /* Estilo para el contenedor principal */
+    .container {
+        margin-top: 100px;
+    }
 
-nav>li {
-    list-style: none;
-}
+    /* Estilo para el texto dentro del contenedor principal */
+    .container h1,
+    .container p {
+        color: #ffffff;
+    }
 
-footer {
-    background-color: var(--footer-bg-color);
-    color: #fff;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-}
+    /* Estilo para el párrafo */
+    .col-md-12 p {
+        font-size: 18px;
+        color: #ffffff;
+    }
 
-.signup-error {
-    color: red;
-}
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Alinea los elementos al final (derecha) */
+        background-color: #333;
+        height: 80px;
+        box-sizing: border-box; /* Incluye el relleno y el borde en el ancho y alto total */
+    }
+    
+    nav>li {
+        list-style: none;
+    }
+    
+    nav>li>a {
+        color: white !important;
+        text-decoration: none;
+        margin-right: 15px;
+    }
+    
+    nav>li:last-child>a {
+        margin-right: 0;
+    }
+    
+    nav>li>a:hover {
+        text-decoration: underline;
+    }
+    body {
+        background-image: url(/static/img/imgbg/m2.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    /* Estilos para pantallas más pequeñas */
+    @media only screen and (max-width: 768px) {
+        nav {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Centra los elementos en el eje transversal */
+        }
+
+        #logo {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
+    }
+
+    /* Estilos para la sección "Quiénes somos" */
+    .quienes-somos {
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    .quienes-somos h2 {
+        color: #007bff;
+    }
+
+    .quienes-somos p {
+        color: #555;
+    }
+
+    /* Estilos para el pie de página (footer) */
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .footer-links a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+    }
+
+    .footer-links a:hover {
+        text-decoration: underline;
+    }
+
+    /* Otros estilos para el pie de página según sea necesario */
+
+    /* ... Otros estilos ... */
+    /* Estilos para el carrusel */
+    #carouselExample {
+        position: fixed;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 30%;
+        height: 70vh;
+        overflow: hidden;
+    }
+
+    .carousel-inner {
+        height: 80%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .carousel-item img {
+        object-fit: contain;
+    }
+
+    /* Estilo de las flechas */
+    .carousel-control-prev,
+    .carousel-control-next {
+        top: 45%;
+        transform: translateY(-50%);
+    }
+
+    .texto-sobre-imagen {
+        display: block;
+        font-size: 24px;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        margin-top: 10px;
+    }
+
+    .texto-sobre-imagen:hover {
+        text-decoration: underline;
+    }
