@@ -1,14 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
-from .models import User, Vehiculo
+from .models import User, Vehiculo, PerfilUsuario, Reseña
 from django.contrib.auth import login
 from django.db import IntegrityError
 from .forms import UserRegistrationForm
-from .models import Vehiculo, Reseña
+from django.contrib.auth.models import User
+from .models import PerfilUsuario, Reseña, Vehiculo
+from .serializers import PerfilUsuarioSerializer, ReseñaSerializer, VehiculoSerializer
+from .models import Vehiculo
 import os
 from django.conf import settings
-from .serializers import PerfilUsuarioSerializer
 
 
 @login_required
@@ -86,26 +88,3 @@ def user_profile(request, pk):
     }
 
     return render(request, 'user.html', context)
-
-
-def add_email(request):
-    if request.method == "POST":
-        new_email = request.POST.get("new_email")
-        request.user.email = new_email
-        request.user.save()
-
-        return redirect('/')
-
-    return render(request, 'user.html')
-
-
-@login_required
-def update_username(request):
-    if request.method == 'POST':
-        new_username = request.POST.get('new_username')
-        request.user.username = new_username
-        request.user.save()
-
-        return redirect('/')
-
-    return render(request, 'user.html')
