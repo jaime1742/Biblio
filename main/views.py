@@ -88,3 +88,37 @@ def user_profile(request, pk):
     }
 
     return render(request, 'user.html', context)
+
+
+def add_email(request):
+    if request.method == "POST":
+        new_email = request.POST.get("new_email")
+        request.user.email = new_email
+        request.user.save()
+
+        return redirect('/')
+
+    return render(request, 'user.html')
+
+
+@login_required
+def update_username(request):
+    if request.method == 'POST':
+        new_username = request.POST.get('new_username')
+        request.user.username = new_username
+        request.user.save()
+
+        return redirect('/')
+
+    return render(request, 'user.html')
+
+
+def vehiculo_detalle(request, pk):
+    vehiculo = Vehiculo.objects.get(pk=pk)
+    reseñas = Reseña.objects.filter(vehiculo=vehiculo)
+
+    context = {
+        'vehiculo': vehiculo,
+        'reseñas': reseñas,
+    }
+    return render(request, 'vehiculo_detalle.html', context)
