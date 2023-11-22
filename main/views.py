@@ -119,3 +119,4 @@ def vehiculo_detalle(request, pk):
         'reseñas': reseñas,
     }
     return render(request, 'vehiculo_detalle.html', context)
+
