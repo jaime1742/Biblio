@@ -6,9 +6,11 @@ class Marca(models.Model):
     marca = models.CharField(max_length=100)
     logo = models.ImageField()
 
+    def __str__(self) -> str:
+        return f'{self.marca}'
 
 class Vehiculo(models.Model):
-    marca = models.CharField(max_length=200, null=True)
+    marca = models.ForeignKey(Marca, on_delete=models.CASCADE, default='1')
     modelo = models.CharField(max_length=100)
     imagen = models.ImageField()
     anho = models.IntegerField()
