@@ -3,6 +3,6 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/vehiculo_detalle.css' %}">
 
-<img src="{% static 'img/' %}{{ vehiculo.imagen }}" alt="{{ vehiculo.marca }} {{ vehiculo.modelo }}">
+<img class='coche' src="{% static 'img/' %}{{ vehiculo.imagen }}" alt="{{ vehiculo.marca }} {{ vehiculo.modelo }}">
 
 {% endblock %}
