@@ -134,7 +134,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-
+}
 
 .footer-links {
     display: flex;
@@ -151,5 +151,3 @@ footer {
 .footer-links a:hover {
     text-decoration: underline;
 }
-
-
