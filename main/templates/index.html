@@ -3,85 +3,52 @@
 {% load bootstrap5 %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+
 <div class="container">
-<div class="row">
-<div class="col-md-12 text-center">
-<h1> MOTORPULSE</h1>
-<hr>
-</div>
-</div>
-<div class="row">
-<div class="col-md-8">
-<div id="carouselExample" class="carousel slide" data-ride="carousel">
-<a class="texto-sobre-imagen" href="{% url 'lista_coches' %}">Galeria de Coches</a></li>
-
-<div class="carousel-inner">
-{% for image in images %}
-<div class="carousel-item{% if forloop.first %} active{% endif %}">
-<img class="d-block w-100" src="{% static 'img/' %}{{ image }}" alt="Slide {{ forloop.counter }}">
-</div>
-{% endfor %}
-</div>
-
-<a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-<span class="sr-only">Previous</span>
-</a>
-<a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
-<span class="carousel-control-next-icon" aria-hidden="true"></span>
-<span class="sr-only">Next</span>
-</a>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="quienes-somos">
-<h2>Quiénes somos</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-</div>
-</div>
-</div>
-</div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h1> MOTORPULSE</h1>
-                
-                <hr>
-            </div>
-        </div>
-    
-        <div class="row">
-            <div class="col-md-8">
-                <div id="carouselExample" class="carousel slide" data-ride="carousel">
-                <a class="texto-sobre-imagen" href="{% url 'lista_coches' %}">Galeria de Coches</a></li>
-
-
-                    <div class="carousel-inner">
-                        {% for image in images %}
-                            <div class="carousel-item{% if forloop.first %} active{% endif %}">
-                                <img class="d-block w-100" src="{% static 'img/' %}{{ image }}" alt="Slide {{ forloop.counter }}">
-                            </div>
-                        {% endfor %}
-                    </div>
-
-                    <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="quienes-somos">
-                    <h2>Quiénes somos</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1> MOTORPULSE</h1>
         </div>
     </div>
+</div>
+
+<div class="empty-container"></div>
+
+<div class="center-container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div id="carouselExample" class="carousel slide" data-ride="carousel"> 
+                <a class="texto-sobre-imagen" href="{% url 'lista_coches' %}">Galeria de Coches</a>
+
+                <div class="carousel-inner">
+                    {% for image in images %}
+                    <div class="carousel-item{% if forloop.first %} active{% endif %}">
+                        <img class="d-block w-100" src="{% static 'img/' %}{{ image }}" alt="Slide {{ forloop.counter }}">
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+
+                <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                </div>
+            
+	   
+        
+        </div>
+    <div class="dondeestamos">
+                    <h2 class="subtitulo">Donde estamos:</h2>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.1514872716757!2d-3.6938113846030833!3d40.44978397936128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4229189dbac4db%3A0x5400e56fb9abf5b1!2sIMMUNE%20Technology%20Institute!5e0!3m2!1ses!2ses!4v1637762840484!5m2!1ses!2ses" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    </div>
+</div>
+
 {% endblock %}

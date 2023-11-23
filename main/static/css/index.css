@@ -1,0 +1,53 @@
+.empty-container {
+    height: 100px; /* Ajusta la altura según sea necesario */
+}
+#contenedor{
+    position: relative;
+    margin-top: 700px; /* Ajusta el margen superior según sea necesario */
+}
+#carouselExample {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    height: 70vh;
+    overflow: hidden;
+    margin-top: 700px; /* Ajusta el margen superior según sea necesario */
+    margin-right: 1rem;
+}
+
+.carousel-inner {
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-item img {
+    object-fit: contain;
+}
+
+/* Estilo de las flechas */
+.carousel-control-prev,
+.carousel-control-next {
+    top: 45%;
+    transform: translateY(-50%);
+}
+
+.texto-sobre-imagen {
+    display: block;
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.texto-sobre-imagen:hover {
+    text-decoration: underline;
+}
+
+#dondeestamos{
+    position: relative;
+    margin-top: 700px; /* Ajusta el margen superior según sea necesario */
+    margin-right: 3rem;
+}
