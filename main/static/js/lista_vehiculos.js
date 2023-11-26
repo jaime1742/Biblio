@@ -18,3 +18,5 @@ function todos() {
         figure.classList.remove("ocultar")
     })
 }
+
+

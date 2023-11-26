@@ -1,0 +1,15 @@
+{% block content %}
+{% load static %}
+    <form action="{% url 'cars-models' %}" method="POST">
+        <select name="brands" id="brands">
+            {% for v in vehiculos %}
+                <option value="{{ v.marca }}">{{ v.marca }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <select name="models" id="models">
+
+        </select>
+    </form>
+    <script src="{% static 'js/cars.js' %}"></script>
+{% endblock %}

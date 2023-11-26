@@ -133,3 +133,8 @@ def add_comment(request):
 
         Reseña.objects.create(usuario=request.user, vehiculo=vehicle_instance, calificacion=qualification, comentario=comment)
         return redirect('/')
+
+
+def cars_models(request):
+    vehiculos = Vehiculo.objects.all()
+    return render(request, 'template.html', {'vehiculos': vehiculos})
