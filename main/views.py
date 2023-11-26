@@ -122,3 +122,14 @@ def vehiculo_detalle(request, pk):
         'reseñas': reseñas,
     }
     return render(request, 'vehiculo_detalle.html', context)
+
+
+def add_comment(request):
+    if request.method == "POST":
+        qualification = request.POST.get('qualification')
+        comment = request.POST.get('new_comment')
+        vehicle = request.POST.get('vehicle')
+        vehicle_instance = Vehiculo.objects.get(pk=vehicle)
+
+        Reseña.objects.create(usuario=request.user, vehiculo=vehicle_instance, calificacion=qualification, comentario=comment)
+        return redirect('/')

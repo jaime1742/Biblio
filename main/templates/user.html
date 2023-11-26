@@ -23,7 +23,7 @@
         {% else %}
             Añadir email
             <br>
-            <form method="post" action="{% url 'add-email' %}">
+            <form method="POST" action="{% url 'add-email' %}">
                 {% csrf_token %}
                 <input type="email" name="new_email" required>
                 <button type="submit">Guardar</button>

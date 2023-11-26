@@ -4,7 +4,8 @@
 <link rel="stylesheet" href="{% static 'css/lista_vehiculos.css' %}">
 <h1>Catálogo</h1>
 
-<nav>
+<!--
+    <nav>
     <img class="logos" src="{% static 'img/audi_logo.png' %}" alt="Audi" onclick="mostrarFotos('#Audi')">
     <img class="logos" src="{% static 'img/bmw_logo.png' %}" alt="BMW" onclick="mostrarFotos('#BMW')">
     <img class="logos" src="{% static 'img/chevrolet_logo.png' %}" alt="Chevrolet" onclick="mostrarFotos('#Chevrolet')">
@@ -17,6 +18,7 @@
     <img class="logos" src="{% static 'img/volkswagen_logo.png' %}" alt="Volkswagen" onclick="mostrarFotos('#Volkswagen')">
     <label class="links" onclick="todos()">Todos</label>
 </nav>
+-->
 
 <div class="catalogo">
     {% for vehiculo in vehiculos %}
