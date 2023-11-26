@@ -1,15 +1,20 @@
 {% block content %}
 {% load static %}
-    <form action="{% url 'cars-models' %}" method="POST">
+    <form action="{% url 'cars-models' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <select name="brands" id="brands">
             {% for v in vehiculos %}
-                <option value="{{ v.marca }}">{{ v.marca }}</option>
+                <option value="{{ v.marca }}" id="brand">{{ v.marca }}</option>
             {% endfor %}
         </select>
         <br>
-        <select name="models" id="models">
-
-        </select>
+        <select name="models" id="models"></select>
+        <br>
+        <input type="file" id="image" name="image">
+        <br>
+        <input type="number" name="year" id="year">
+        <br>
+        <button type="submit">Enviar</button>
     </form>
     <script src="{% static 'js/cars.js' %}"></script>
 {% endblock %}

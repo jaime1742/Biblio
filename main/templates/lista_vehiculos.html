@@ -18,12 +18,23 @@
     <img class="logos" src="{% static 'img/volkswagen_logo.png' %}" alt="Volkswagen" onclick="mostrarFotos('#Volkswagen')">
     <label class="links" onclick="todos()">Todos</label>
 </nav>
--->
+
 
 <div class="catalogo">
     {% for vehiculo in vehiculos %}
     <figure class="coche"  id="{{ vehiculo.marca }}">
     <a href="{% url 'vehiculo_detalle' vehiculo.id %}"><img src="{% static 'img/' %}{{ vehiculo.imagen }}" alt="{{ vehiculo.marca }} {{ vehiculo.modelo }}"></a>
+        <figcaption>{{ vehiculo.marca }} {{ vehiculo.modelo }} {{ vehiculo.anho }}</figcaption>
+    </figure>  
+    {% endfor %}
+    <script src="{% static 'js/lista_vehiculos.js' %}"></script>
+</div>
+-->
+
+<div class="catalogo">
+    {% for vehiculo in vehiculos %}
+    <figure class="coche"  id="{{ vehiculo.marca }}">
+    <a href="{% url 'vehiculo_detalle' vehiculo.id %}"><img src="{{ vehiculo.imagen.url }}" alt="{{ vehiculo.marca }} {{ vehiculo.modelo }}"></a>
         <figcaption>{{ vehiculo.marca }} {{ vehiculo.modelo }} {{ vehiculo.anho }}</figcaption>
     </figure>  
     {% endfor %}

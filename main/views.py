@@ -136,5 +136,17 @@ def add_comment(request):
 
 
 def cars_models(request):
-    vehiculos = Vehiculo.objects.all()
-    return render(request, 'template.html', {'vehiculos': vehiculos})
+    if request.method == "GET":
+        vehiculos = Vehiculo.objects.all()
+        return render(request, 'template.html', {'vehiculos': vehiculos})
+
+    if request.method == 'POST':
+        brand = request.POST.get('brands')
+        model = request.POST.get('models')
+        image = request.FILES.get('image')
+        year= request.POST.get('year')
+
+        car_instance = Vehiculo(marca=brand, modelo=model, imagen=image, anho=year)
+        car_instance.save()
+
+        return redirect('/')

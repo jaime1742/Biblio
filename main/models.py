@@ -10,7 +10,7 @@ class Marca(models.Model):
 class Vehiculo(models.Model):
     marca = models.CharField(max_length=200, null=True)
     modelo = models.CharField(max_length=100)
-    imagen = models.ImageField()
+    imagen = models.ImageField(upload_to='car_images/')
     anho = models.IntegerField()
 
     def __str__(self) -> str:

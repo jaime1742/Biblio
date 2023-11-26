@@ -15,6 +15,7 @@ function apiRequest(brand) {
         data.Results.forEach(res => {
             option = document.createElement('option');
             option.value = res.Model_Name;
+            option.classList.add('model');
             option.textContent = res.Model_Name;
 
             modelsSelect.appendChild(option);
