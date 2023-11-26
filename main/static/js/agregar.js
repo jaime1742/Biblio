@@ -1,13 +1,15 @@
 $(document).ready(function() {
     $('#id_marca').change(function() {
-        var selectedMarca = $(this).val();
+        var selectedMarca = $(this).find("option:selected").text();
         if (selectedMarca) {
-            var apiUrl = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${selectedMarca}?format=json`;
-
+            console.log(selectedMarca); 
+            var apiUrl = `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${encodeURIComponent(selectedMarca)}?format=json`;
+            console.log(apiUrl)
             $.ajax({
                 url: apiUrl,
                 type: 'GET',
                 success: function(data) {
+                    console.log(data)
                     // Lógica para manejar la respuesta de la API
                     $('#id_modelo').empty();
 

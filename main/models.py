@@ -12,7 +12,7 @@ class Marca(models.Model):
 class Vehiculo(models.Model):
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE, default='1')
     modelo = models.CharField(max_length=100)
-    imagen = models.ImageField()
+    imagen = models.ImageField(null=True, blank=True)
     anho = models.IntegerField()
 
     def __str__(self) -> str:
