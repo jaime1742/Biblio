@@ -5,9 +5,42 @@
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/user_details.css' %}">
 
-    <h1 class="details-title">Detalles</h1>
-    <h3 class="username">Nombre: {{ user.username }}
-        <a href="#" id="edit-username">Editar</a>
+    <div class="usuario">
+        <h1 class="details-title">Detalles</h1>
+        <div class="user-details">
+            <div class="user-image">
+                <img src="{% static 'img/imgbg/perfil-usuario.jpg' %}" alt="Imagen de usuario">
+            </div>
+            
+            <div class="user-info">
+                <h3 class="username">
+                    {{ user.username }}
+                    <a href="#" id="edit-username">Editar</a>
+                </h3>
+            </div>
+        </div>
+
+        <div class="email">
+            <h3>
+                {% if user.email %}
+                    {{ user.email }}
+                {% else %}
+                    Añadir email
+                    <br>
+                    <form method="post" action="{% url 'add-email' %}">
+                        {% csrf_token %}
+                        <input type="email" name="new_email" required>
+                        <button type="submit">Guardar</button>
+                    </form>
+                {% endif %}
+            </h3>
+        </div>
+
+        {% if user.is_staff %}
+        <div>
+            <a href="{% url 'staff' %}"><button class="btn btn-custom">Vista de administrador</button></a>
+        </div>
+        {% endif %}
 
         <div id="username-form" style="display: none;">
             <form method="post" action="{% url 'update-username' %}">
@@ -35,6 +68,11 @@
             <h3>{{ reseña.vehiculo }}: {{ reseña.comentario }}. {{ reseña.calificacion }}/10 &star;</h3>
             <h4>Reseña de: {{ reseña.comentario }}</h4>
         {% endfor %}
+        <div class="reviews">
+            {% for reseña in reseñas %}
+                <h3>{{ reseña.vehiculo }}: {{ reseña.comentario }}. {{ reseña.calificacion }}/10 &star;</h3>
+            {% endfor %}
+        </div>
     </div>
     <script src="{% static 'js/user.js' %}">
         

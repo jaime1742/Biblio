@@ -14,4 +14,6 @@ urlpatterns = [
     path('update-username/', views.update_username, name='update-username'),
     path('coches/<int:pk>', views.vehiculo_detalle, name='vehiculo_detalle'),
     path('comment/', views.add_comment, name='add-comment')
+    path('staff/', views.staff, name='staff'),
+    path('staff/agregar/', views.agregar, name='agregar')
 ]
