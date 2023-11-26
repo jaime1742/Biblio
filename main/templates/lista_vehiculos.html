@@ -6,7 +6,7 @@
 
 <nav>
     {% for vehiculo in vehiculos %}
-    <img class="logos" src="{% static 'img/' %}{{ vehiculo.marca.logo }}" alt="{{ vehiculo.marca }}" onclick="mostrarFotos('#{{ vehiculo.marca }}')">
+    <img class="logos" src="{% static 'img/logos/' %}{{ vehiculo.marca.logo }}" alt="{{ vehiculo.marca }}" onclick="mostrarFotos('#{{ vehiculo.marca }}')">
     {% endfor %}
     <label class="links" onclick="todos()">Todos</label>
 </nav>

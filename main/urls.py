@@ -13,4 +13,6 @@ urlpatterns = [
     path('add_email/', views.add_email, name='add-email'),
     path('update-username/', views.update_username, name='update-username'),
     path('coches/<int:pk>', views.vehiculo_detalle, name='vehiculo_detalle'),
+    path('staff/', views.staff, name='staff'),
+    path('staff/agregar/', views.agregar, name='agregar')
 ]

@@ -4,13 +4,14 @@ from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMix
 from .models import User, Vehiculo, PerfilUsuario, Reseña
 from django.contrib.auth import login
 from django.db import IntegrityError
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, CocheForm
 from django.contrib.auth.models import User
 from .models import PerfilUsuario, Reseña, Vehiculo
 from .serializers import PerfilUsuarioSerializer, ReseñaSerializer, VehiculoSerializer
-from .models import Vehiculo
+from .models import Vehiculo, Marca
 import os
 from django.conf import settings
+import requests
 
 
 @login_required
@@ -122,3 +123,26 @@ def vehiculo_detalle(request, pk):
         'reseñas': reseñas,
     }
     return render(request, 'vehiculo_detalle.html', context)
+
+def staff(request):
+    vehiculos = Vehiculo.objects.all()
+    usuarios = User.objects.all()
+
+    context = {
+        'vehiculos': vehiculos,
+        'usuarios': usuarios,
+    }
+
+    return render(request, 'staff.html', context)
+
+def agregar(request):
+    if request.method == 'POST':
+        form = CocheForm(request.POST, request.FILES)
+        if form.is_valid():
+            car = form.save()
+            # Lógica adicional si es necesario
+            return redirect('staff')
+    else:
+        form = CocheForm()
+
+    return render(request, 'agregar.html', {'form': form})
