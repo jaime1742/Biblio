@@ -158,14 +158,12 @@ def agregar(request):
         image = request.FILES.get('image')
         year = request.POST.get('year')
 
-        # Obtener o crear una instancia de Marca
         marca_instance, created = Marca.objects.get_or_create(marca=brand_name)
 
         car_instance = Vehiculo(marca=marca_instance, modelo=model, imagen=image, anho=year)
         car_instance.save()
 
         return redirect('staff')
-    return render(request, 'agregar.html', {'form': form})
 
 class CustomPasswordResetView(PasswordResetView):
     form_class = CustomPasswordResetForm
