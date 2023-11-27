@@ -132,7 +132,7 @@ def add_comment(request):
         vehicle_instance = Vehiculo.objects.get(pk=vehicle)
 
         Reseña.objects.create(usuario=request.user, vehiculo=vehicle_instance, calificacion=qualification, comentario=comment)
-        return redirect('/')
+
 def staff(request):
     vehiculos = Vehiculo.objects.all()
     usuarios = User.objects.all()
