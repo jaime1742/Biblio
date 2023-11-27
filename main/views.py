@@ -49,7 +49,6 @@ def signup(request):
 
 
 @login_required
-@permission_required("User")
 def lista_coches(request):
     vehiculos = Vehiculo.objects.all()
     marcas = Marca.objects.all()
