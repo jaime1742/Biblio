@@ -10,3 +10,22 @@
     width: 500px;
     object-fit: cover;
 }
+body {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+ 
+
+}
+
+.container1 {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    color: white;
+    background-color: black;
+}
+.container1 h1,h2,label{
+    color: white;
+}
