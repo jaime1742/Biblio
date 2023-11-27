@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/staff.css' %}">
+<div class="caja">
+    <h1 class="coches">Coches</h1>
+    <div class="vehiculos">
+        {% for vehiculo in vehiculos %}
+        <h4>{{ vehiculo.marca }} {{ vehiculo.modelo }} {{ vehiculo.anho }}</h4>
+        {% endfor %}
+        <a href="{% url 'agregar' %}"><button class="btn btn-custom">Añadir coche</button></a>
+    </div>
+</div>
+{% endblock %}

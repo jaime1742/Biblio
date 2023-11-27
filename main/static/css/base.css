@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Estilos para pantallas más grandes */
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+
+
+  }
+  
+  main {
+    flex: 1; 
+  }
+  
+header {
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box; 
+    font-size: 34 px;
+    height: 80px;
+    font-family: 'Orbitron'
+
+
+} 
+
+nav {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    background-color: #333;
+    height: 80px;
+    box-sizing: border-box; 
+
+    
+}
+
+#logo-container {
+    display: flex;
+    align-items: center;
+}
+
+#logo-container a {
+    text-decoration: none;
+}
+#index-container a {
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+#logo {
+    width: 50px; /* Ajusta el tamaño del logo según sea necesario */
+    margin-right: 10px; /* Añade margen derecho al logo */
+    
+}
+
+#logo-container h1 {
+    /* Ajusta el tamaño del título según sea necesario */
+    margin: 0; /* Elimina el margen del título para alinearlo con el logo */
+    text-decoration: none; /* Elimina el subrayado del título */
+    color: #00ffcc;
+
+}
+
+#index-container {
+    list-style: none;
+    margin-right: 10px; /* Ajusta el margen derecho según sea necesario */
+    position: fixed;
+    right: 20px; /* Ajusta la posición desde el borde derecho */
+    display: flex;
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+}
+
+#index-container a {
+    margin-right: 15px;
+    color: #00ffcc;
+
+
+}
+
+
+.col-md-12 h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el contenedor principal */
+.container {
+    margin-top: 100px;
+    
+}
+
+/* Estilo para el texto dentro del contenedor principal */
+.container h1,
+.container p {
+    color: #ffffff;
+}
+
+/* Estilo para el párrafo */
+.col-md-12 p {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+
+
+
+body {
+    background-image: url(/static/img/imgbg/m2.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* Estilos para pantallas más pequeñas */
+@media only screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /* Centra los elementos en el eje transversal */
+    }
+
+    #logo {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+/* Estilos para el pie de página (footer) */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    font-family: 'Orbitron'
+}
+
+footer p{
+    color: #00ffcc;
+
+}
+
+
+
+
+@keyframes neon {
+    from {
+        text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+    }
+    to {
+        text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc;
+    }
+}

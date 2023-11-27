@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+
+.h1 {
+    font-size: 48px;
+    color: #00ffcc;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    animation: neon 1.5s ease-in-out infinite alternate;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el contenido en el cuerpo */
+    align-items: center; /* Centra verticalmente el contenido en el cuerpo */
+    margin: 0;
+    margin-top: -200px; 
+}
+
+
+@keyframes neon {
+    from {
+        text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+    }
+    to {
+        text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc;
+    }
+}
