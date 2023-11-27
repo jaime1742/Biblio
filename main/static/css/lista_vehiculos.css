@@ -41,10 +41,11 @@ h1 {
     align-items: center;
     gap: 20px;
     margin: 20px;
+    color: aliceblue;
 }
 
 figcaption {
-    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .ocultar {
@@ -68,10 +69,10 @@ figcaption {
 }
 
 nav {
-   padding-top: 30px;
    display: flex;
    justify-content: center;
    flex-wrap: wrap;
+   background-color: white;
 }
 
 .links {

@@ -6,6 +6,7 @@
 <h1>Catálogo</h1>
 
 <nav>
+    <h3 class="texto">Filtrador</h3>
     {% for marca in marcas %}
     <img class="logos" src="{% static 'img/logos/' %}{{ marca.logo }}" alt="{{ marca.marca }}" onclick="mostrarFotos('#{{ marca.marca }}')">
     {% endfor %}
@@ -15,8 +16,8 @@
 <div class="catalogo">
     {% for vehiculo in vehiculos %}
     <figure class="coche"  id="{{ vehiculo.marca }}">
-    <a href="{% url 'vehiculo_detalle' vehiculo.id %}"><img src="{{ vehiculo.imagen.url }}" alt="{{ vehiculo.marca }} {{ vehiculo.modelo }}"></a>
         <figcaption>{{ vehiculo.marca }} {{ vehiculo.modelo }} {{ vehiculo.anho }}</figcaption>
+        <a href="{% url 'vehiculo_detalle' vehiculo.id %}"><img src="{{ vehiculo.imagen.url }}" alt="{{ vehiculo.marca }} {{ vehiculo.modelo }}"></a>
     </figure>  
     {% endfor %}
     <script src="{% static 'js/lista_vehiculos.js' %}"></script>

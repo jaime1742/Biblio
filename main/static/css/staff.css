@@ -16,3 +16,13 @@
     background-color: black;
     color: aliceblue;
 }
+
+.coches {
+    padding: 10px;
+    border-bottom: solid black 2px;
+    margin: 0 10px;
+}
+
+.vehiculos {
+    padding: 10px;
+}

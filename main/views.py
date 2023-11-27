@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMix
 from .models import User, Vehiculo, PerfilUsuario, Reseña
 from django.contrib.auth import login
 from django.db import IntegrityError
-from .forms import UserRegistrationForm, CocheForm
+from .forms import UserRegistrationForm
 from django.contrib.auth.models import User
 from .models import PerfilUsuario, Reseña, Vehiculo
 from .serializers import PerfilUsuarioSerializer, ReseñaSerializer, VehiculoSerializer
@@ -146,14 +146,22 @@ def staff(request):
 
     return render(request, 'staff.html', context)
 
-def agregar(request):
-    if request.method == 'POST':
-        form = CocheForm(request.POST)
-        if form.is_valid():
-            car = form.save()
-            # Lógica adicional si es necesario
-            return redirect('staff')
-    else:
-        form = CocheForm()
 
-    return render(request, 'agregar.html', {'form': form})
+def agregar(request):
+    if request.method == "GET":
+        marcas = Marca.objects.all()
+        return render(request, 'agregar.html', {'marcas': marcas})
+
+    if request.method == 'POST':
+        brand_name = request.POST.get('brands')
+        model = request.POST.get('models')
+        image = request.FILES.get('image')
+        year = request.POST.get('year')
+
+        # Obtener o crear una instancia de Marca
+        marca_instance, created = Marca.objects.get_or_create(marca=brand_name)
+
+        car_instance = Vehiculo(marca=marca_instance, modelo=model, imagen=image, anho=year)
+        car_instance.save()
+
+        return redirect('staff')
