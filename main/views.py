@@ -166,7 +166,7 @@ def agregar(request):
         car_instance.save()
 
         return redirect('staff')
-    return render(request, 'agregar.html', {'form': form})
+    return render(request, 'agregar.html')
 
 class CustomPasswordResetView(PasswordResetView):
     form_class = CustomPasswordResetForm
