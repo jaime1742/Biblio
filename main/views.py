@@ -148,7 +148,7 @@ def staff(request):
 
 def agregar(request):
     if request.method == 'POST':
-        form = CocheForm(request.POST, request.FILES)
+        form = CocheForm(request.POST)
         if form.is_valid():
             car = form.save()
             # Lógica adicional si es necesario
