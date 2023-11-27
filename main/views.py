@@ -51,7 +51,8 @@ def signup(request):
 @permission_required("User")
 def lista_coches(request):
     vehiculos = Vehiculo.objects.all()
-    return render(request, 'lista_vehiculos.html', {'vehiculos': vehiculos})
+    marcas = Marca.objects.all()
+    return render(request, 'lista_vehiculos.html', {'vehiculos': vehiculos, 'marcas': marcas})
 
 
 def filtro_coches(request):

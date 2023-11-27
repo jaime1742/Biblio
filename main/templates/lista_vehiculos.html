@@ -5,12 +5,11 @@
 <h1>Catálogo</h1>
 
 <nav>
-    {% for vehiculo in vehiculos %}
-    <img class="logos" src="{% static 'img/logos/' %}{{ vehiculo.marca.logo }}" alt="{{ vehiculo.marca }}" onclick="mostrarFotos('#{{ vehiculo.marca }}')">
+    {% for marca in marcas %}
+    <img class="logos" src="{% static 'img/logos/' %}{{ marca.logo }}" alt="{{ marca.marca }}" onclick="mostrarFotos('#{{ marca.marca }}')">
     {% endfor %}
     <label class="links" onclick="todos()">Todos</label>
 </nav>
--->
 
 <div class="catalogo">
     {% for vehiculo in vehiculos %}

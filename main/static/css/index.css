@@ -1,47 +1,26 @@
-.empty-container {
-    height: 100px; /* Ajusta la altura según sea necesario */
-}
-#contenedor{
-    position: relative;
-    margin-top: 700px; /* Ajusta el margen superior según sea necesario */
-}
-#carouselExample {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40%;
-    height: 70vh;
-    overflow: hidden;
-    margin-top: 700px; /* Ajusta el margen superior según sea necesario */
-    margin-right: 1rem;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+
+.h1 {
+    font-size: 48px;
+    color: #00ffcc;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    animation: neon 1.5s ease-in-out infinite alternate;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el contenido en el cuerpo */
+    align-items: center; /* Centra verticalmente el contenido en el cuerpo */
+    margin: 0;
+    margin-top: -200px; 
 }
 
-.carousel-inner {
-    height: 80%;
-    align-items: center;
-    justify-content: center;
-}
 
-.carousel-item img {
-    object-fit: contain;
-}
-
-/* Estilo de las flechas */
-.carousel-control-prev,
-.carousel-control-next {
-    top: 45%;
-    transform: translateY(-50%);
-}
-
-.texto-sobre-imagen {
-    display: block;
-    font-size: 24px;
-    text-align: center;
-    color: #fff;
-    text-decoration: none;
-    margin-top: 10px;
-}
-
-.texto-sobre-imagen:hover {
-    text-decoration: underline;
+@keyframes neon {
+    from {
+        text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+    }
+    to {
+        text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc;
+    }
 }

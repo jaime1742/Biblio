@@ -49,29 +49,11 @@
                 <button type="submit">Guardar</button>
             </form>
         </div>
-    </h3>
-    <h3 class="email">
-        {% if user.email %}
-            Email: {{ user.email }}
-        {% else %}
-            Añadir email
-            <br>
-            <form method="POST" action="{% url 'add-email' %}">
-                {% csrf_token %}
-                <input type="email" name="new_email" required>
-                <button type="submit">Guardar</button>
-            </form>
-        {% endif %}
-    </h3>
         <div class="reviews">
         {% for reseña in reseñas %}
             <h3>{{ reseña.vehiculo }}: {{ reseña.comentario }}. {{ reseña.calificacion }}/10 &star;</h3>
-            <h4>Reseña de: {{ reseña.comentario }}</h4>
+            <h4>Reseña de: {{ reseña.usuario }}</h4>
         {% endfor %}
-        <div class="reviews">
-            {% for reseña in reseñas %}
-                <h3>{{ reseña.vehiculo }}: {{ reseña.comentario }}. {{ reseña.calificacion }}/10 &star;</h3>
-            {% endfor %}
         </div>
     </div>
     <script src="{% static 'js/user.js' %}">
