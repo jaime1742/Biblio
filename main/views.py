@@ -11,7 +11,6 @@ from .serializers import PerfilUsuarioSerializer, ReseñaSerializer, VehiculoSer
 from .models import Vehiculo, Marca
 import os
 from django.conf import settings
-import requests
 
 
 @login_required
