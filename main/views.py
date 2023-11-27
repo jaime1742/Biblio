@@ -48,7 +48,6 @@ def signup(request):
 
 
 @login_required
-@permission_required("User")
 def lista_coches(request):
     vehiculos = Vehiculo.objects.all()
     marcas = Marca.objects.all()
@@ -164,7 +163,6 @@ def agregar(request):
         car_instance.save()
 
         return redirect('staff')
-
 
 class CustomPasswordResetView(PasswordResetView):
     form_class = CustomPasswordResetForm
