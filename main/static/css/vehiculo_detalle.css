@@ -21,11 +21,17 @@ body {
 
 .container1 {
     text-align: center;
-    padding: 20px;
+    padding: 60px 40px;
     border: 1px solid #ccc;
     color: white;
     background-color: black;
 }
-.container1 h1,h2,label{
-    color: white;
+
+.reviews {
+    text-align: start;
+    padding: 10px;
+}
+
+label {
+    padding: 10px;
 }

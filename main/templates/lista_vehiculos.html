@@ -3,10 +3,8 @@
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/lista_vehiculos.css' %}">
-<h1>Catálogo</h1>
-
+<h1 class="fil">Filtrador</h1>
 <nav>
-    <h3 class="texto">Filtrador</h3>
     {% for marca in marcas %}
     <img class="logos" src="{% static 'img/logos/' %}{{ marca.logo }}" alt="{{ marca.marca }}" onclick="mostrarFotos('#{{ marca.marca }}')">
     {% endfor %}

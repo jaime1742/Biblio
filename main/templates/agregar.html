@@ -16,13 +16,16 @@
             {% endfor %}
         </select>
         <br>
+        <label for="Modelo">Modelo: </label>
         <select name="models" id="models"></select>
         <br>
+        <label for="imagen">Imagen: </label>
         <input type="file" id="image" name="image">
         <br>
+        <label for="año">Año: </label>
         <input type="number" name="year" id="year">
         <br>
-        <button class="btn btn-custom" type="submit">Enviar</button>
+        <button class="btn btn-custom" type="submit">Guardar</button>
     </form>
 </div>
 <script src="{% static 'js/agregar.js' %}"></script>
