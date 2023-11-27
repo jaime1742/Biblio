@@ -11,7 +11,6 @@ from .serializers import PerfilUsuarioSerializer, ReseñaSerializer, VehiculoSer
 from .models import Vehiculo, Marca
 import os
 from django.conf import settings
-import requests
 
 
 @login_required
@@ -134,7 +133,7 @@ def add_comment(request):
         vehicle_instance = Vehiculo.objects.get(pk=vehicle)
 
         Reseña.objects.create(usuario=request.user, vehiculo=vehicle_instance, calificacion=qualification, comentario=comment)
-        return redirect('/')
+
 def staff(request):
     vehiculos = Vehiculo.objects.all()
     usuarios = User.objects.all()
