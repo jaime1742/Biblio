@@ -7,15 +7,6 @@ class UserRegistrationForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput, label="Contraseña")
     password_confirm = forms.CharField(widget=forms.PasswordInput, label="Confirmar contraseña")
 
-class CocheForm(forms.ModelForm):
-    class Meta:
-        model = Vehiculo
-        fields = ['marca', 'modelo', 'anho', 'imagen']
-        labels = {'anho': 'Año'}
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['modelo'].widget = forms.Select(choices=[]) 
 
 
 class CustomPasswordResetForm(PasswordResetForm):

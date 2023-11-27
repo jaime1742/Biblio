@@ -4,15 +4,29 @@
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/agregar.css' %}">
-<div class="form">
-    <h1 class="añadir">Añadir Coche</h1>
 
-    <form method="post" enctype="multipart/form-data">
+<div class="form">
+    <h2 class="añadir">Añadir coche</h2>
+    <form action="{% url 'agregar' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-custom" type="submit">Añadir Coche</button>
+        <label for="Marca">Marca: </label>
+        <select name="brands" id="brands">
+            {% for v in marcas %}
+                <option value="{{ v.marca }}" id="brand">{{ v.marca }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="Modelo">Modelo: </label>
+        <select name="models" id="models"></select>
+        <br>
+        <label for="imagen">Imagen: </label>
+        <input type="file" id="image" name="image">
+        <br>
+        <label for="año">Año: </label>
+        <input type="number" name="year" id="year">
+        <br>
+        <button class="btn btn-custom" type="submit">Guardar</button>
     </form>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="{% static 'js/agregar.js' %}"></script>
 {% endblock %}

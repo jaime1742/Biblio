@@ -3,8 +3,8 @@
 {% load static %}
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/logged_out.css' %}">
-
-    <h1>Has cerrado sesión</h1>
-    <p>Para iniciar sesión de nuevo <a href="{% url 'login' %}">haz click aquí</a></p>
-
+    <div class="logout">
+        <h1>Has cerrado sesión</h1>
+        <p>Para iniciar sesión de nuevo <a href="{% url 'login' %}">haz click aquí</a></p>
+    </div>
 {% endblock %}
