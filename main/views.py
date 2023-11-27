@@ -4,13 +4,14 @@ from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMix
 from .models import User, Vehiculo, PerfilUsuario, Reseña
 from django.contrib.auth import login
 from django.db import IntegrityError
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, CustomPasswordResetForm
 from django.contrib.auth.models import User
 from .models import PerfilUsuario, Reseña, Vehiculo
 from .serializers import PerfilUsuarioSerializer, ReseñaSerializer, VehiculoSerializer
 from .models import Vehiculo, Marca
 import os
 from django.conf import settings
+from django.contrib.auth.views import PasswordResetView
 
 
 @login_required
@@ -165,3 +166,7 @@ def agregar(request):
         car_instance.save()
 
         return redirect('staff')
+    return render(request, 'agregar.html', {'form': form})
+
+class CustomPasswordResetView(PasswordResetView):
+    form_class = CustomPasswordResetForm

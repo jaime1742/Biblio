@@ -28,9 +28,19 @@
                             {{ form.password }}
                         </li>
                     </ul>
-                    <input type="submit" value="Login" />
+                    <input type="submit" value="Iniciar Sesion" />
+                    <input id="recuperarContraseñaBtn" type="button" value="Recuperar contraseña">
+
                 </form>
             </div>
         {% endif %}
     </div>
+        <script>
+            document.getElementById('recuperarContraseñaBtn').addEventListener('click', function() {
+                var recoveryUrl = '{% url "password_reset" %}';
+                console.log(recoveryUrl);
+                window.location.href = recoveryUrl;
+            });
+
+    </script>
 {% endblock %}
