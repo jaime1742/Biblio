@@ -8,7 +8,7 @@
 
     <form method="POST" action="{% url 'add-comment' %}">
         {% csrf_token %}
-        <label for="qualification">Calificacion</label>
+        <label for="qualification">Calificacion 1-10</label>
         <input type="number" id="qualification" name="qualification" min="1" max="10">
         <label for="new_comment">Añadir Comentario...</label>
         <textarea name="new_comment" id="new_comment" cols="10" rows="1"></textarea>
