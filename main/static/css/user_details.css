@@ -1,11 +1,53 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.usuario {
+    max-width: 800px;
+    margin: 200px auto;
+    color: #333;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.user-details {
+    display: flex;
+    align-items: center;
 }
 
 .details-title {
-    display: flex;
-    justify-content: center;
-    margin-top: 4rem;
+    padding: 10px;
+    border-bottom: solid black 2px;
+    margin: 0 10px;
+}
+
+.user-image img {
+    height: 70px;
+    width: auto;
+    margin-right: 10px;
+}
+
+#edit-username {
+    color: #007bff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+#username-form {
+    margin-top: 10px;
+}
+
+.email {
+    padding: 10px;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.btn-custom {
+    margin: 10px;
+    background-color: #333;
+    color: aliceblue;
+}
+
+.btn-custom:hover {
+    background-color: black;
+    color: aliceblue;
 }

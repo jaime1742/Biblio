@@ -4,13 +4,14 @@ from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMix
 from .models import User, Vehiculo, PerfilUsuario, Reseña
 from django.contrib.auth import login
 from django.db import IntegrityError
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, CocheForm
 from django.contrib.auth.models import User
 from .models import PerfilUsuario, Reseña, Vehiculo
 from .serializers import PerfilUsuarioSerializer, ReseñaSerializer, VehiculoSerializer
-from .models import Vehiculo
+from .models import Vehiculo, Marca
 import os
 from django.conf import settings
+import requests
 
 
 @login_required
@@ -51,7 +52,8 @@ def signup(request):
 @permission_required("User")
 def lista_coches(request):
     vehiculos = Vehiculo.objects.all()
-    return render(request, 'lista_vehiculos.html', {'vehiculos': vehiculos})
+    marcas = Marca.objects.all()
+    return render(request, 'lista_vehiculos.html', {'vehiculos': vehiculos, 'marcas': marcas})
 
 
 def filtro_coches(request):
@@ -133,3 +135,25 @@ def add_comment(request):
 
         Reseña.objects.create(usuario=request.user, vehiculo=vehicle_instance, calificacion=qualification, comentario=comment)
         return redirect('/')
+def staff(request):
+    vehiculos = Vehiculo.objects.all()
+    usuarios = User.objects.all()
+
+    context = {
+        'vehiculos': vehiculos,
+        'usuarios': usuarios,
+    }
+
+    return render(request, 'staff.html', context)
+
+def agregar(request):
+    if request.method == 'POST':
+        form = CocheForm(request.POST, request.FILES)
+        if form.is_valid():
+            car = form.save()
+            # Lógica adicional si es necesario
+            return redirect('staff')
+    else:
+        form = CocheForm()
+
+    return render(request, 'agregar.html', {'form': form})
