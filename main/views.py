@@ -15,7 +15,6 @@ from django.contrib.auth.views import PasswordResetView
 
 
 @login_required
-
 def index(request):
     images_path = os.path.join(settings.BASE_DIR,'main', 'static', 'img')
     images = [image for image in os.listdir(images_path) if image.endswith(('jpg', 'jpeg', 'png'))]
@@ -49,7 +48,6 @@ def signup(request):
 
 
 @login_required
-@permission_required("User")
 def lista_coches(request):
     vehiculos = Vehiculo.objects.all()
     marcas = Marca.objects.all()
@@ -159,7 +157,6 @@ def agregar(request):
         image = request.FILES.get('image')
         year = request.POST.get('year')
 
-        # Obtener o crear una instancia de Marca
         marca_instance, created = Marca.objects.get_or_create(marca=brand_name)
 
         car_instance = Vehiculo(marca=marca_instance, modelo=model, imagen=image, anho=year)
