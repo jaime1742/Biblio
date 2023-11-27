@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Marca(models.Model):
     marca = models.CharField(max_length=100)
-    logo = models.ImageField()
+    logo = models.ImageField(null=True)
 
     def __str__(self) -> str:
         return f'{self.marca}'
